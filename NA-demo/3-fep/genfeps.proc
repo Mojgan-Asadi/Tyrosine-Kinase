@@ -1,0 +1,56 @@
+
+#######################################################
+{SCRIPT_VARS}
+#######################################################
+
+SOLUTE            $1.N$     $264.H231$
+
+# distance restraint on water to prevent dissociation
+  DIST_REST1     $87.SG$    $264.C19$  0.0  2.0 10.0  0
+#######################################################
+{GENERAL}
+#######################################################
+[MD]
+stepsize                   1
+temperature            300.0
+bath_coupling            100  
+separate_scaling          on
+lrf                       on
+
+[cut-offs]
+solute_solute             10
+solute_solvent            10
+solvent_solvent           10
+q_atom                    99
+
+[intervals]
+non_bond                 30
+output                 1000
+trajectory             1000
+temperature            1000
+
+
+[sequence_restraints]
+
+[distance_restraints]
+DIST_REST1
+
+[angle_restraints]
+
+#######################################################
+{STEPS_EQUIL}
+#######################################################
+[MD]
+steps                 50000
+random_seed              -1
+initial_temperature   300.0
+
+#######################################################
+{FEP}
+#######################################################
+[MD]
+steps                 5000
+
+[intervals]
+energy                   10
+

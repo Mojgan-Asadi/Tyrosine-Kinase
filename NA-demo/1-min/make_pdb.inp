@@ -1,0 +1,13 @@
+readlib ../0-topol/0-ff/qamber14_all.lib
+readlib ../0-topol/0-ff/qamber14_cym.lib
+readlib ../0-topol/0-ff/cvm_q.lib
+readlib ../0-topol/0-ff/wat.lib
+readlib ../0-topol/0-ff/HOH.lib
+readprm ../0-topol/0-ff/qamber14_lig.prm
+
+readtop ./relax/NA.top
+
+readx ./relax/relax_012.re
+writepdb 4hcv_na_equil_012.pdb 1
+
+quit

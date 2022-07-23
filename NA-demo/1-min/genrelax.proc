@@ -1,0 +1,134 @@
+
+#######################################################
+{SCRIPT_VARS}
+#######################################################
+SOLUTE            $1.N$     $264.H231$
+
+# distance restraint on water to prevent dissociation
+DIST_REST1     $87.SG$    $264.C19$  0.0  2.0 10.0  0
+
+#######################################################
+{GENERAL}
+#######################################################
+[MD]
+temperature              0.1
+initial_temperature      0.1
+stepsize                 0.1
+bath_coupling            0.1
+random_seed               -1
+separate_scaling          on
+lrf                       on
+shake_solvent            off
+
+[cut-offs]
+solute_solute             10
+solute_solvent            10
+solvent_solvent           10
+q_atom                    99
+
+[lambdas]
+0.50 0.50
+
+[intervals]
+non_bond                 30
+output                   10 
+trajectory               10
+temperature              10
+
+[sequence_restraints]
+# sequence restraints here
+
+[distance_restraints]
+DIST_REST1
+
+[angle_restraints]
+# angle restraints here
+
+
+#######################################################
+{STEPS}
+#######################################################
+
+# minimize the solvent 
+# - a few short steps to prevent instant hotspots (new velocities)
+
+[MD]
+steps                    100
+
+[sequence_restraints]
+SOLUTE           20.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                    100
+
+[sequence_restraints]
+SOLUTE           20.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                    100
+
+[sequence_restraints]
+SOLUTE           20.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                    200
+
+[sequence_restraints]
+SOLUTE           20.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                    500
+
+[sequence_restraints]
+SOLUTE           20.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                  50000
+stepsize                 0.5
+bath_coupling            0.5
+
+[intervals]
+output                   100 
+trajectory               100
+temperature              100
+
+[sequence_restraints]
+SOLUTE           20.0  0 0 0
+_____________________________________________________________
+
+
+# minimize everything
+[MD]
+steps                    100
+_____________________________________________________________
+
+[MD]
+steps                    100
+_____________________________________________________________
+
+[MD]
+steps                    100
+_____________________________________________________________
+
+[MD]
+steps                    200
+_____________________________________________________________
+
+[MD]
+steps                    500
+_____________________________________________________________
+
+[MD]
+steps                  50000
+stepsize                 0.5
+bath_coupling            0.5
+
+[intervals]
+output                   100 
+trajectory               100
+temperature              100

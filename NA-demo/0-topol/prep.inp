@@ -1,0 +1,16 @@
+readlib ./0-ff/qamber14_all.lib
+readlib ./0-ff/qamber14_cym.lib
+readlib ./0-ff/cvm_sp2_q.lib
+readlib ./0-ff/wat.lib
+readprm ./0-ff/qamber14_lig.prm
+
+readpdb 4hcv_pt1_equil_007_aso.pdb
+
+boundary 1 87:SG 20
+solvate 87:SG 20 1 HOH
+
+maketop   NA.top
+writetop  NA.top
+writepdb  NA_start.pdb y
+quit
+

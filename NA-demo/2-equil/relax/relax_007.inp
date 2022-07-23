@@ -1,0 +1,38 @@
+# Generated with QTools, version 0.7.0
+# Cmdline: /home1/masadi/bin/qtools/qscripts-cli/q_genrelax.py genrelax.proc --cont ../1-min/relax/relax_012.inp --rest cont_final --pdb ../0-topol/NA_start.pdb --rs sbatch_run_q.sh
+[md]
+steps                                        200000
+temperature                                   300.0
+stepsize                                          1
+bath_coupling                                   100
+separate_scaling                                 on
+lrf                                              on
+
+[cut-offs]
+solute_solute                                    10
+solvent_solvent                                  10
+solute_solvent                                   10
+q_atom                                           99
+
+[intervals]
+non_bond                                         30
+output                                         2000
+temperature                                    2000
+trajectory                                     2000
+
+[files]
+topology                                     NA.top
+restart                                relax_006.re
+final                                  relax_007.re
+trajectory                            relax_007.dcd
+fep                                      evb_na.fep
+restraint                    cont_relax_012.re.rest
+
+[lambdas]
+0.60 0.40
+
+[sequence_restraints]
+
+[distance_restraints]
+
+[angle_restraints]

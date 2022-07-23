@@ -1,0 +1,27 @@
+# q atom (q)                   PDB ID                        LIB ID (resname.name)
+# or neighbour (n)?         (resid.name)             STATE 1       STATE 2        STATE 3       ....
+
+# set all atoms to be in the QM region
+# Main chain atoms (nuclephilic attack)
+q                                87.CB              CYM.CB        CVM.CB
+q                                87.HB2             CYM.HB2       CVM.HB2
+q                                87.HB3             CYM.HB3       CVM.HB3
+q                                87.SG              CYM.SG        CVM.SG
+# ASP
+q                                264.C21            LIG.C21       CVM.C21
+q                                264.H211           LIG.H211      CVM.H211
+q                                264.H212           LIG.H212      CVM.H212
+q                                264.H213           LIG.H213      CVM.H213
+q                                264.C19            LIG.C19       CVM.C19
+q                                264.C13            LIG.C13       CVM.C13
+q                                264.C7             LIG.C7        CVM.C7
+q                                264.O1             LIG.O1        CVM.O1
+q                                264.N1             LIG.N1        CVM.N1
+q                                264.C4             LIG.C4        CVM.C4
+q                                264.H42            LIG.H42       CVM.H42
+q                                264.H43            LIG.H43       CVM.H43
+q                                264.C1             LIG.C1        CVM.C1
+q                                264.H1             LIG.H1        CVM.H1
+# Capping Atoms
+# NA                                                                  
+#q                                1.SG               CYM.SG       CVM.SG

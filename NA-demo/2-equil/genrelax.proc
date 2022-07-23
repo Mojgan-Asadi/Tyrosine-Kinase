@@ -1,0 +1,106 @@
+
+#######################################################
+{SCRIPT_VARS}
+#######################################################
+SOLUTE            $1.N$     $264.H231$
+
+# distance restraint on water to prevent dissociation
+  DIST_REST1     $87.SG$    $264.C19$  0.0  2.0 10.0  0
+
+#######################################################
+{GENERAL}
+#######################################################
+[MD]
+stepsize                   1
+temperature            300.0
+bath_coupling            100  
+separate_scaling          on
+lrf                       on
+
+[cut-offs]
+solute_solute             10
+solute_solvent            10
+solvent_solvent           10
+q_atom                    99
+
+[lambdas]
+0.60 0.40
+
+[intervals]
+non_bond                 30
+output                 2000 
+trajectory             2000
+temperature            2000
+
+[sequence_restraints]
+# sequence restraints here
+
+[distance_restraints]
+#DIST_REST1
+
+[angle_restraints]
+# angle restraints here
+
+
+#######################################################
+{STEPS}
+#######################################################
+
+
+[MD]
+steps                  50000
+initial_temperature     5.00
+temperature             5.00
+random_seed               -1
+
+[sequence_restraints]
+SOLUTE      20.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                  20000
+temperature             50.0
+
+[sequence_restraints]
+SOLUTE      10.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                  20000
+temperature            200.0
+
+[sequence_restraints]
+SOLUTE       3.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                  10000
+temperature            300.0
+
+[sequence_restraints]
+SOLUTE       1.0  0 0 0
+_____________________________________________________________
+
+[MD]
+steps                 100000
+temperature            300.0
+
+_____________________________________________________________
+[MD]
+steps                   200000
+
+_____________________________________________________________
+[MD]
+steps                   200000
+
+_____________________________________________________________
+[MD]
+steps                   200000
+
+_____________________________________________________________
+[MD]
+steps                   200000
+
+
+
+
